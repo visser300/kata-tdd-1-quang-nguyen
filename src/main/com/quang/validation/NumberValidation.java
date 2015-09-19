@@ -21,7 +21,7 @@ public class NumberValidation {
         return result;
     }
 
-    private boolean isValid(Integer num) {
+    public boolean isValid(Integer num) {
     	
         for (Rule rule : rules)
             if (!rule.isValid(num))

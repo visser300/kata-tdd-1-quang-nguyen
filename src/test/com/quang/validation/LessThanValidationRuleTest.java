@@ -11,7 +11,7 @@ import com.quang.validation.Rule;
 
 public class LessThanValidationRuleTest {
 
-    private Rule rule;
+     private Rule rule;
     
 	 @Before
 	 public void setUp() {

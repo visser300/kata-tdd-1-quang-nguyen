@@ -72,4 +72,18 @@ public class PlainTextCalculatorTest {
 
         assertEquals(2, result);
     }
+    
+    @Test
+    public void shouldAllowDelimeterWithAnyLength() throws Exception {
+        int result = calculator.add("//[***]\n1***2***3");
+
+        assertEquals(6, result);
+    }
+    
+    @Test
+    public void shouldAllowMultipleDelimeterWithAnyLength() throws Exception {
+        int result = calculator.add("//[*][%]\n1*2%3");
+
+        assertEquals(6, result);
+    }
 }
