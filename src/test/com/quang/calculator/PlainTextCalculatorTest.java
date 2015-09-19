@@ -52,4 +52,11 @@ public class PlainTextCalculatorTest {
 
         assertEquals(6, result);
     }
+    
+    @Test
+    public void shouldReturnTheSumOfNumbersSeparatedWithDifferentDelimiters() throws Exception {
+        int result = calculator.add("//;\n1;2.3");
+
+        assertEquals(6, result);
+    }
 }
