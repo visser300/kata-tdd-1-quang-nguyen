@@ -10,6 +10,7 @@ import com.quang.validation.NumberValidation;
 import com.quang.validation.Rule;
 
 /**
+ * Main class to parse the string numbers and sum them up
  * @author Quang Nguyen
  */
 public class PlainTextCalculator {
@@ -20,7 +21,9 @@ public class PlainTextCalculator {
 
     private final Rule lessThanRule = new LessThanRule(1000);
     
-    
+    /**
+     * Constructor
+     */
     public PlainTextCalculator() {
         
         this.numberService = new ParseNumberService();
@@ -31,14 +34,27 @@ public class PlainTextCalculator {
         this.numberValidation = new NumberValidation(rules);
     }
 
+    /**
+     * 1st step: Parse the string to an array of number
+     * 2nd step: Check any negative number exists to throw exception
+     * 3rd step: remove any number that is >= 1000 
+     */
     public int add(final String numbers) throws Exception {
+    	
+    	// first step
         List<Integer> numbersList = numberService.extract(numbers);
+        
+        // second step
         numberSearcher.search(numbersList);
+        
+        // last step
         numbersList = numberValidation.removeNotValidNumbers(numbersList);
         
+        // sum up the numbers in the array
         return sumNumbers(numbersList);
     }
 
+    // method to sum up all the numbers in an array
     private int sumNumbers(List<Integer> numberList) {
     	
         int sum = 0;

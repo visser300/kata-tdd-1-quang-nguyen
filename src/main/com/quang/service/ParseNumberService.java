@@ -18,6 +18,9 @@ public class ParseNumberService {
     	pattern = Pattern.compile("-?\\d+");
     }
     
+    /**
+     * Analyze the string passed as parameter and return a list of Integer numbers
+     */
     public List<Integer> extract(final String stringToAnalyze) {
     	
         if (stringToAnalyze != null)
@@ -27,12 +30,18 @@ public class ParseNumberService {
         return new LinkedList<Integer>();
     }
 
+    /**
+     * Parse string numbers using regular expression 
+     */
     private List<Integer> getNumbersUsingRegEx(String string) {
     	
     	List<Integer> result = extractNumbersFromMatcher(pattern.matcher(string));
     	return result;
     }
 
+    /**
+     * Parse string numbers using regular expression 
+     */
     private List<Integer> extractNumbersFromMatcher(Matcher matcher) {
         LinkedList<Integer> numbers = new LinkedList<Integer>();
         while (matcher.find()) {

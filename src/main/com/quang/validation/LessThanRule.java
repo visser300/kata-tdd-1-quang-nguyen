@@ -1,5 +1,9 @@
 package com.quang.validation;
 
+/**
+ * Invalidate all the numbers grater than or equals to a predefined value.
+ *
+ */
 public class LessThanRule implements Rule{
 	
 	private final int value;
