@@ -59,4 +59,9 @@ public class PlainTextCalculatorTest {
 
         assertEquals(6, result);
     }
+    
+    @Test(expected = Exception.class)
+    public void shouldThrowExceptionWithNegativeNumber() throws Exception {
+        calculator.add("2,-4");
+    }
 }

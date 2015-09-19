@@ -2,6 +2,7 @@ package com.quang.calculator;
 
 import java.util.List;
 
+import com.quang.service.LessThanZeroNumberSearcher;
 import com.quang.service.ParseNumberService;
 
 /**
@@ -9,15 +10,19 @@ import com.quang.service.ParseNumberService;
  */
 public class PlainTextCalculator {
 
-    private ParseNumberService numberService;    
-    
+    private ParseNumberService numberService;
+    private LessThanZeroNumberSearcher numberSearcher;
+
     public PlainTextCalculator() {
         
         this.numberService = new ParseNumberService();
+        this.numberSearcher = new LessThanZeroNumberSearcher();
     }
 
     public int add(final String numbers) throws Exception {
+    	
         List<Integer> numbersList = numberService.extract(numbers);
+        numberSearcher.search(numbersList);
         
         return sumNumbers(numbersList);
     }
