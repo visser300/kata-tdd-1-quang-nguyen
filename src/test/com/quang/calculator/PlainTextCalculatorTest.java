@@ -37,7 +37,6 @@ public class PlainTextCalculatorTest {
 
         assertEquals(0, result);
     }
-
     
     @Test
     public void shouldReturnTheSumOfUnlimitedNumber() throws Exception {
@@ -45,5 +44,12 @@ public class PlainTextCalculatorTest {
     	int result = calculator.add("1,2,3,4,5,6,7,8,9");
 
         assertEquals(45, result);
+    }
+    
+    @Test
+    public void shouldReturnTheSumOfNumbersSeparatedWithNewLineCharacters() throws Exception {
+        int result = calculator.add("1\n2,3");
+
+        assertEquals(6, result);
     }
 }
