@@ -3,6 +3,7 @@ package com.quang.calculator;
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
+import com.quang.calculator.PlainTextCalculator;
 
 public class PlainTextCalculatorTest {
 	
@@ -63,5 +64,12 @@ public class PlainTextCalculatorTest {
     @Test(expected = Exception.class)
     public void shouldThrowExceptionWithNegativeNumber() throws Exception {
         calculator.add("2,-4");
+    }
+    
+    @Test
+    public void shouldIgnoreNumbersGratherThanOneThousand() throws Exception {
+        int result = calculator.add("2,1000");
+
+        assertEquals(2, result);
     }
 }
